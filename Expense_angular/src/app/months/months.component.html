@@ -1,1 +1,66 @@
-<p>months works!</p>
+<style>
+.black-border {
+  border: 1px solid black;
+}
+
+/* Month Toolbar */
+
+.months-toolbar > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0px auto;
+  box-shadow: 0px 0px 10px rgba(19, 19, 19, 0.5);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.months-toolbar button:nth-of-type(2),
+.months-toolbar button:nth-of-type(3) {
+  display: flex;
+  align-items: center;
+}
+
+/* ------------------ */
+
+app-month {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+</style>
+
+<div class="months-toolbar">
+    <div>
+
+        <button class="btn btn-outline-success" (click)="addNextMonth()">
+            Add Next Month
+        </button>
+
+        <button class="btn btn-outline-success"
+            (click)="addMonthByName(yearField.value, monthField.value); yearField.value = ''; monthField.value = ''">
+            <span class="me-1">Add Month</span>
+            <i class='bx bxs-right-arrow'></i>
+        </button>
+
+        <form class="row">
+            <div class="col">
+                <input #yearField type="text" class="form-control" placeholder="Year">
+            </div>
+            <div class="col">
+                <input #monthField type="text" class="form-control" placeholder="Month Name">
+            </div>
+        </form>
+
+        <button class="btn btn-outline-danger"
+            (click)="deleteMonth(yearField.value, monthField.value); yearField.value = ''; monthField.value = ''">
+            <i class='bx bxs-left-arrow'></i>
+            <span class="ms-1">Delete Month</span>
+        </button>
+
+    </div>
+</div>
+
+<app-month *ngFor="let month of monthsToDisplay" [month]="month"></app-month>

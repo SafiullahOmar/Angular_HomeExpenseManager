@@ -7,6 +7,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { MonthsComponent } from './months/months.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { MonthComponent } from './month/month.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { FooterComponent } from './footer/footer.component';
     SideNavComponent,
     MonthsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MonthComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
