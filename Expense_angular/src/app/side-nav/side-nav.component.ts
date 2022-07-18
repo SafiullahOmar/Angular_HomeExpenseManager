@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MonthNavigation } from '../Models/models';
+import { TableDatasourceService } from '../services/table-datasource.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class SideNavComponent implements OnInit {
+  navigationList: MonthNavigation[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private datasource: TableDatasourceService) {
+    this.navigationList = [];
   }
 
+  ngOnInit(): void {
+    this.datasource.monthNavigationObservable.subscribe((res) => {
+      this.navigationList = res;
+    });
+  }
+
+  newMonthNavigationClicked(event: any) {
+    let monthNavigation: MonthNavigation = {
+      monthYear: event.monthYear,
+      monthNumber: event.monthNumber,
+    };
+    this.datasource.monthNavigationSelectedObservable.next(monthNavigation);
+  }
 }

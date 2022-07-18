@@ -11,6 +11,8 @@ import { MonthComponent } from './month/month.component';
 import { TableComponent } from './table/table.component';
 import { NumberToMonthPipe } from './Pipes/number-to-month.pipe';
 import { MonthToNumberPipe } from './Pipes/month-to-number.pipe';
+import{HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { MonthToNumberPipe } from './Pipes/month-to-number.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,7 +32,7 @@ namespace Expense_API
             {
                 options.AddPolicy(name: "AllowOrigin", builder =>
                 {
-                    builder.WithOrigins("http://localhost:5001").AllowAnyHeader().AllowAnyMethod();
+                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
                 });
             });
             services.AddDbContext<MonthsDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyDBConnection")));
